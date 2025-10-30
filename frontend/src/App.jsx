@@ -1,4 +1,6 @@
 import { Route, Routes } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
@@ -6,7 +8,6 @@ import OnBoardingPage from "./pages/OnBoardingPage";
 import ChatPage from "./pages/ChatPage";
 import CallPage from "./pages/CallPage";
 import NotificationsPage from "./pages/NotificationsPage";
-import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
