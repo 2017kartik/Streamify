@@ -10,6 +10,7 @@ import OnBoardingPage from "./pages/OnBoardingPage";
 import ChatPage from "./pages/ChatPage";
 import CallPage from "./pages/CallPage";
 import NotificationsPage from "./pages/NotificationsPage";
+import PageLoader from "./components/PageLoader";
 
 const App = () => {
   //Example
@@ -27,6 +28,8 @@ const App = () => {
   });
 
   const authUser = authData?.user;
+
+  if (isLoading) return <PageLoader />;
 
   // console.log(isLoading);
   // console.log(data);
