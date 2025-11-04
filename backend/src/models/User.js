@@ -37,10 +37,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    inOnboarded: {
+    isOnboarded: {
       type: Boolean,
       default: false,
-    },
+    },  
     friends: [
       {
         type: mongoose.Schema.Types.ObjectId,

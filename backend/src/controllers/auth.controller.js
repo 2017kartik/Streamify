@@ -118,17 +118,17 @@ export function logout(req, res) {
 export async function onboard(req, res) {
   try {
     const userId = req.user._id;
-    const { fullName, bio, nativeLanguage, learningLanguage, location } =
+    const { fullName, bio, nativeLanguage, learningLanguages, location } =
       req.body;
 
-    if (!fullName || !bio || !nativeLanguage || !learningLanguage || !location)
+    if (!fullName || !bio || !nativeLanguage || !learningLanguages || !location)
       return res.status(400).json({
         message: "All fields are required",
         missingFields: [
           !fullName && "fullName",
           !bio && "bio",
           !nativeLanguage && "nativeLanguage",
-          !learningLanguage && "learningLanguage",
+          !learningLanguages && "learningLanguages",
           !location && "location",
         ].filter(Boolean),
       });
@@ -136,11 +136,7 @@ export async function onboard(req, res) {
     const updateUser = await User.findByIdAndUpdate(
       userId,
       {
-        fullName,
-        bio,
-        nativeLanguage,
-        learningLanguage,
-        location,
+        ...req.body,
         isOnboarded: true,
       },
       { new: true }
