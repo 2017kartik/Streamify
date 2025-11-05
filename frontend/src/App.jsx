@@ -10,6 +10,7 @@ import CallPage from "./pages/CallPage";
 import NotificationsPage from "./pages/NotificationsPage";
 
 import PageLoader from "./components/PageLoader";
+import Layout from "./components/Layout";
 
 import useAuthUser from "./hooks/useAuthUser";
 
@@ -22,13 +23,15 @@ const App = () => {
   if (isLoading) return <PageLoader />;
 
   return (
-    <div>
+    <div className="h-screen" data-theme="forest">
       <Routes>
         <Route
           path="/"
           element={
             isAuthenticated && isOnboarded ? (
-              <HomePage />
+              <Layout showSidebar={true}>
+                <HomePage />
+              </Layout>
             ) : (
               <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
             )
